@@ -973,6 +973,7 @@ encode_sdf_filter (void *p, u8 ** vec)
   pfcp_sdf_filter_t *v = p;
 
   put_u8 (*vec, v->flags & 0x0f);
+  put_u8 (*vec, 0x00); //Adding spare byte.
   if (v->flags & F_SDF_FD)
     {
       put_u16 (*vec, _vec_len (v->flow));
